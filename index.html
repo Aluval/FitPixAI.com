@@ -11,6 +11,7 @@
       color: #fff;
       text-align: center;
       padding: 2rem;
+      overflow-x: hidden; /* prevent horizontal scroll when sidebar opens */
     }
     h1 {
       font-size: 2.2rem;
@@ -33,11 +34,94 @@
       background: #00ffd5;
       color: #000;
     }
+
+    /* Sidebar styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 255, 213, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 2px 0 12px rgba(0, 255, 213, 0.3);
+      color: #00ffd5;
+      padding: 20px;
+      transition: left 0.4s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #00ffd5;
+    }
+    .sidebar h3 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #00ffd5;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+    .sidebar ul li a {
+      color: #00ffd5;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #fff;
+    }
+
+    /* Menu button */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #00ffd5;
+      z-index: 1100;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    .menu-btn:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
+
+  <div class="menu-btn" onclick="toggleSidebar()">&#x22EE;</div>
+
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">&#x2716;</div>
+    <h3>Menu</h3>
+    <ul>
+      <li><a href="https://t.me/Sunrises24Botupdates" target="_blank" rel="noopener noreferrer">Updates</a></li>
+      <li><a href="https://t.me/Sunrises24BotSupport" target="_blank" rel="noopener noreferrer">Support</a></li>
+    </ul>
+  </div>
+
   <h1>Welcome to FitPix AI</h1>
   <a href="bmi.html" class="button">BMI Calculator</a>
   <a href="phototools.html" class="button">Photo Tools</a>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
+
 </body>
 </html>
