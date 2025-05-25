@@ -2,6 +2,7 @@
   "name": "FitPix AI - Photo Editor",
   "short_name": "FitPixAI",
   "description": "AI-powered photo editor with cinematic filters and tools.",
+  "lang": "en-US",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
