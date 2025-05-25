@@ -4,28 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FitPix AI - Home</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/FitPixAI-192.png" />
-  <link rel="apple-touch-icon" href="icons/FitPixAI-512.png" />
-  <meta name="theme-color" content="#00ffd5" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #0d0d0d;
+      background: #0d0d0d; /* dark background */
       color: #fff;
       text-align: center;
       padding: 2rem;
-      overflow-x: hidden; /* prevent horizontal scroll when sidebar opens */
+      overflow-x: hidden;
     }
     h1 {
       font-size: 2.2rem;
       margin-bottom: 1rem;
-      color: #fff; /* plain white */
+      color: #00ffd5;
+      position: relative;
+      /* Neon text glow */
+      text-shadow:
+        0 0 5px #00ffd5,
+        0 0 10px #00ffd5,
+        0 0 20px #00ffd5,
+        0 0 40px #00ffd5,
+        0 0 80px #00ffd5;
+      /* Neon text border effect */
+      -webkit-text-stroke: 1px #00ffd5;
+      text-stroke: 1px #00ffd5; /* For browsers supporting */
     }
     .button {
-      background: #1a1a1a;
-      border: 1px solid #fff; /* white border */
-      color: #fff; /* white text */
+      background: #1a1a1a; /* dark button background */
+      border: 2px solid #00ffd5;
+      color: #00ffd5;
       padding: 0.6rem 1.2rem;
       margin: 0.3rem;
       border-radius: 10px;
@@ -33,11 +40,30 @@
       transition: 0.3s;
       text-decoration: none;
       display: inline-block;
+      font-weight: 600;
+      /* Neon text glow */
+      text-shadow:
+        0 0 4px #00ffd5,
+        0 0 8px #00ffd5,
+        0 0 12px #00ffd5;
+      /* Neon border glow */
+      box-shadow:
+        0 0 5px #00ffd5,
+        0 0 10px #00ffd5,
+        0 0 20px #00ffd5;
+      /* Neon text border */
+      -webkit-text-stroke: 0.5px #00ffd5;
+      text-stroke: 0.5px #00ffd5;
     }
     .button:hover {
-      background: #fff; /* white bg on hover */
-      color: #000; /* black text on hover */
+      background: #00ffd5;
+      color: #000;
+      text-shadow: none; /* remove glow for readability */
+      box-shadow: none;
+      -webkit-text-stroke: 0;
+      text-stroke: 0;
     }
+
     /* Sidebar styles */
     .sidebar {
       position: fixed;
@@ -45,13 +71,13 @@
       left: -250px;
       width: 250px;
       height: 100%;
-      background: rgba(255, 255, 255, 0.1); /* subtle white */
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      box-shadow: none; /* no neon glow */
-      color: #fff; /* white text */
+      color: #fff;
       padding: 20px;
       transition: left 0.4s ease;
       z-index: 1000;
+      box-shadow: none;
     }
     .sidebar.open {
       left: 0;
@@ -62,12 +88,12 @@
       right: 15px;
       font-size: 28px;
       cursor: pointer;
-      color: #fff; /* white */
+      color: #fff;
     }
     .sidebar h3 {
       margin-top: 40px;
       margin-bottom: 20px;
-      color: #fff; /* white */
+      color: #fff;
     }
     .sidebar ul {
       list-style: none;
@@ -77,14 +103,15 @@
       margin: 15px 0;
     }
     .sidebar ul li a {
-      color: #fff; /* white */
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
     }
     .sidebar ul li a:hover {
-      color: #ccc; /* lighter on hover */
+      color: #00ffd5;
     }
+
     /* Menu button */
     .menu-btn {
       position: fixed;
@@ -92,25 +119,48 @@
       left: 20px;
       font-size: 28px;
       cursor: pointer;
-      color: #fff; /* white */
+      color: #00ffd5;
       z-index: 1100;
       user-select: none;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: transform 0.3s ease;
     }
     .menu-btn:hover {
       transform: scale(1.2);
-      color: #ccc; /* lighter on hover */
     }
+
     /* Footer copyright */
     footer {
-      margin-top: 4rem;
-      color: #888;
+      margin-top: 40px;
+      color: #555;
       font-size: 0.9rem;
       user-select: none;
     }
   </style>
 </head>
-<body>
+<body>  
+  <div class="menu-btn" onclick="toggleSidebar()">&#x22EE;</div>  
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">&#x2716;</div>
+    <h3>Menu</h3>
+    <ul>
+      <li><a href="https://t.me/Sunrises24Botupdates" target="_blank" rel="noopener noreferrer">Updates</a></li>
+      <li><a href="https://t.me/Sunrises24BotSupport" target="_blank" rel="noopener noreferrer">Support</a></li>
+    </ul>
+  </div>  
+
+  <h1>Welcome to FitPix AI</h1>
+  <a href="bmi.html" class="button">BMI Calculator</a>
+  <a href="phototools.html" class="button">Photo Tools</a>  
+
+  <footer>© 2025 FitPix AI. All rights reserved.</footer>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
 
   <div class="menu-btn" onclick="toggleSidebar()">&#x22EE;</div>
 
