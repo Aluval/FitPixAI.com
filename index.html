@@ -4,33 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FitPix AI - Home</title>
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/FitPixAI-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="icons/FitPixAI-512.png" />
+  <meta name="theme-color" content="#0d0d0d" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #0d0d0d; /* dark background */
+      background: #0d0d0d;
       color: #fff;
       text-align: center;
       padding: 2rem;
-      overflow-x: hidden;
     }
     h1 {
       font-size: 2.2rem;
       margin-bottom: 1rem;
       color: #00ffd5;
-
-      /* Neon text glow and border */
-      text-shadow:
-        0 0 5px #00ffd5,
-        0 0 10px #00ffd5,
-        0 0 20px #00ffd5,
-        0 0 40px #00ffd5,
-        0 0 80px #00ffd5;
-      -webkit-text-stroke: 1px #00ffd5;
-      text-stroke: 1px #00ffd5;
     }
     .button {
       background: #1a1a1a;
-      border: 2px solid #00ffd5;
+      border: 1px solid #00ffd5;
       color: #00ffd5;
       padding: 0.6rem 1.2rem;
       margin: 0.3rem;
@@ -38,44 +35,23 @@
       cursor: pointer;
       transition: 0.3s;
       text-decoration: none;
-      display: inline-block;
       font-weight: 600;
-
-      /* Neon text glow and border */
-      text-shadow:
-        0 0 4px #00ffd5,
-        0 0 8px #00ffd5,
-        0 0 12px #00ffd5;
-      box-shadow:
-        0 0 5px #00ffd5,
-        0 0 10px #00ffd5,
-        0 0 20px #00ffd5;
-      -webkit-text-stroke: 0.5px #00ffd5;
-      text-stroke: 0.5px #00ffd5;
     }
     .button:hover {
       background: #00ffd5;
       color: #000;
-      text-shadow: none;
-      box-shadow: none;
-      -webkit-text-stroke: 0;
-      text-stroke: 0;
     }
-
-    /* Sidebar styles */
     .sidebar {
       position: fixed;
       top: 0;
       left: -250px;
       width: 250px;
       height: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      background: #1c1c1c;
       color: #fff;
       padding: 20px;
-      transition: left 0.4s ease;
+      transition: left 0.3s ease;
       z-index: 1000;
-      box-shadow: none;
     }
     .sidebar.open {
       left: 0;
@@ -91,7 +67,6 @@
     .sidebar h3 {
       margin-top: 40px;
       margin-bottom: 20px;
-      color: #fff;
     }
     .sidebar ul {
       list-style: none;
@@ -104,13 +79,10 @@
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
     }
     .sidebar ul li a:hover {
       color: #00ffd5;
     }
-
-    /* Menu button */
     .menu-btn {
       position: fixed;
       top: 20px;
@@ -120,23 +92,16 @@
       color: #00ffd5;
       z-index: 1100;
       user-select: none;
-      transition: transform 0.3s ease;
     }
-    .menu-btn:hover {
-      transform: scale(1.2);
-    }
-
-    /* Footer copyright */
     footer {
       margin-top: 40px;
       color: #555;
       font-size: 0.9rem;
-      user-select: none;
     }
   </style>
 </head>
-<body>  
-  <div class="menu-btn" onclick="toggleSidebar()">&#x22EE;</div>  
+<body>
+  <div class="menu-btn" onclick="toggleSidebar()">&#x22EE;</div>
   <div class="sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleSidebar()">&#x2716;</div>
     <h3>Menu</h3>
@@ -144,11 +109,11 @@
       <li><a href="https://t.me/Sunrises24Botupdates" target="_blank" rel="noopener noreferrer">Updates</a></li>
       <li><a href="https://t.me/Sunrises24BotSupport" target="_blank" rel="noopener noreferrer">Support</a></li>
     </ul>
-  </div>  
+  </div>
 
   <h1>Welcome to FitPix AI</h1>
   <a href="bmi.html" class="button">BMI Calculator</a>
-  <a href="phototools.html" class="button">Photo Tools</a>  
+  <a href="phototools.html" class="button">Photo Tools</a>
 
   <footer>© 2025 FitPix AI. All rights reserved.</footer>
 
@@ -160,11 +125,11 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('service-worker.js')
-        .then(function(registration) {
-          console.log('Service Worker registered with scope:', registration.scope);
+        .then(function(reg) {
+          console.log('Service Worker registered:', reg.scope);
         })
-        .catch(function(error) {
-          console.log('Service Worker registration failed:', error);
+        .catch(function(err) {
+          console.error('Service Worker registration failed:', err);
         });
       });
     }
