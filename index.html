@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FitPix AI - Home</title>
 
-  <!-- PWA Manifest & Icons -->
+  <!-- Manifest and Icons -->
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/FitPixAI-192.png" />
   <link rel="apple-touch-icon" href="icons/FitPixAI-512.png" />
@@ -19,12 +19,14 @@
       text-align: center;
       padding: 2rem;
       overflow-x: hidden; /* prevent horizontal scroll when sidebar opens */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     h1 {
       font-size: 2.2rem;
       margin-bottom: 1rem;
       color: #00ffd5;
-      text-shadow: 0 0 8px #00ffd5;
     }
     .button {
       background: #1a1a1a;
@@ -37,14 +39,11 @@
       transition: 0.3s;
       text-decoration: none;
       display: inline-block;
-      text-shadow: 0 0 5px #00ffd5;
     }
     .button:hover {
       background: #00ffd5;
       color: #000;
-      text-shadow: none;
     }
-
     /* Sidebar styles */
     .sidebar {
       position: fixed;
@@ -59,7 +58,6 @@
       padding: 20px;
       transition: left 0.4s ease;
       z-index: 1000;
-      text-shadow: 0 0 8px #00ffd5;
     }
     .sidebar.open {
       left: 0;
@@ -89,13 +87,10 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
-      text-shadow: 0 0 8px #00ffd5;
     }
     .sidebar ul li a:hover {
       color: #fff;
-      text-shadow: none;
     }
-
     /* Menu button */
     .menu-btn {
       position: fixed;
@@ -110,6 +105,14 @@
     }
     .menu-btn:hover {
       transform: scale(1.2);
+    }
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 1rem 0;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
     }
   </style>
 </head>
@@ -130,11 +133,15 @@
   <a href="bmi.html" class="button">BMI Calculator</a>
   <a href="phototools.html" class="button">Photo Tools</a>
 
+  <footer>
+    &copy; 2025 FitPix AI. All rights reserved.
+  </footer>
+
   <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("open");
     }
   </script>
-
+  
 </body>
 </html>
