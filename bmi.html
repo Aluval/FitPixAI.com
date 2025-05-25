@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BMI Calculator - FitPix AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #00ffd5;
+    }
+    input[type="number"] {
+      margin: 0.5rem;
+      padding: 0.4rem;
+      border-radius: 8px;
+      border: 1px solid #00ffd5;
+      background: #121212;
+      color: #fff;
+    }
+    button {
+      background: #1a1a1a;
+      border: 1px solid #00ffd5;
+      color: #00ffd5;
+      padding: 0.6rem 1.2rem;
+      margin: 0.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00ffd5;
+      color: #000;
+    }
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #00ffd5;
+    }
+  </style>
+</head>
+<body>
+  <h1>BMI Calculator</h1>
+  <input type="number" id="weight" placeholder="Enter weight (kg)">
+  <input type="number" id="height" placeholder="Enter height (cm)">
+  <br>
+  <button onclick="calculateBMI()">Calculate</button>
+  <div id="result"></div>
+
+  <script>
+    function calculateBMI() {
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value) / 100;
+      const bmi = weight / (height * height);
+      let result = "Your BMI is " + bmi.toFixed(2);
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>
