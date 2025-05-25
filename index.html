@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FitPix AI - Home</title>
+
+  <!-- PWA Manifest & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/FitPixAI-192.png" />
+  <link rel="apple-touch-icon" href="icons/FitPixAI-512.png" />
+  <meta name="theme-color" content="#00ffd5" />
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -17,6 +24,7 @@
       font-size: 2.2rem;
       margin-bottom: 1rem;
       color: #00ffd5;
+      text-shadow: 0 0 8px #00ffd5;
     }
     .button {
       background: #1a1a1a;
@@ -29,10 +37,12 @@
       transition: 0.3s;
       text-decoration: none;
       display: inline-block;
+      text-shadow: 0 0 5px #00ffd5;
     }
     .button:hover {
       background: #00ffd5;
       color: #000;
+      text-shadow: none;
     }
 
     /* Sidebar styles */
@@ -49,6 +59,7 @@
       padding: 20px;
       transition: left 0.4s ease;
       z-index: 1000;
+      text-shadow: 0 0 8px #00ffd5;
     }
     .sidebar.open {
       left: 0;
@@ -78,9 +89,11 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
+      text-shadow: 0 0 8px #00ffd5;
     }
     .sidebar ul li a:hover {
       color: #fff;
+      text-shadow: none;
     }
 
     /* Menu button */
